@@ -1,18 +1,26 @@
 import { Tabs } from "expo-router";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 export default function _Layout(){
-    <Tabs>
+   return(
+     <Tabs screenOptions={{tabBarActiveTintColor:"red"}}>
     <Tabs.Screen
     name="homepage"
     options={{
         headerShown:true,
-        tittle:"feed"
+        tittle:"feed",
+        tabBarIcon:() => <MaterialCommunityIcons name="home-heart" size={24} color="black" />
     }}
     />
     <Tabs.Screen
     name="measurements"
     options={{
         headerShown:true,
-        tittle:"feed"
+        tittle:"measurements",
+        tabBarIcon:() => <MaterialCommunityIcons name="tape-measure" size={24} color="black" />
+
+        
 
     }}
     />
@@ -20,15 +28,18 @@ export default function _Layout(){
     name="history"
     options={{
         headerShown:true,
-        tittle:"history"
+        tittle:"history",
+        tabBarIcon:() => <MaterialCommunityIcons name="history" size={24} color="black" />
     }}
     />
     <Tabs.Screen
     name="settings"
     options={{
         headerShown:true,
-        tittle:"history"
+        tittle:"settings",
+        tabBarIcon:() => <Ionicons name="settings" size={24} color="black" />
     }}
     />
 </Tabs>
+   )
 }
