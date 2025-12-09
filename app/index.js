@@ -13,17 +13,17 @@ export default function Index (){
         <View style={appStyles.HeaderView}>
           <Text style={appStyles.Appname}>Stitch flow</Text>
           <Text style={appStyles.introtext}>your fashion partner</Text>
-        </View>
+        </View >
         {/* body */}
-        <View>
+        <View style={appStyles.imgView}>
           <Image 
           source={require("../assets/images/stitchlg.png")}
           style={myStyles.logo}
 
           
           />
-          <View>
-            <Text>when you choose Stitch flow fashion, you're choosing ease, comfort and realiability</Text>
+          <View style={myStyles.intro}>
+            <Text style={appStyles.introtext2}>when you choose Stitch flow fashion, you're choosing ease, comfort and realiability</Text>
           </View>
           {/* bttom */}
           <View style={{paddingHorizontal:30}}>
@@ -42,6 +42,11 @@ export default function Index (){
 const myStyles = StyleSheet.create({
   logo:{
     width:screenWidth,
-    height:420
-  }
+    height:420,
+    paddingVertical:30,
+    backgroundColor:"white",
+    resizeMode:"contain",
+
+  },
+  
 })

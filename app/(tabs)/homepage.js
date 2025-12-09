@@ -4,6 +4,8 @@ import { Link } from "expo-router";
 import { eventData } from "../../assets/images/localdata/fashionstyle";
 import {appStyles} from "../../utilities/mainstyles"
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useFonts } from "expo-font";
+
 
 function ImageSeprator(){
     return(
@@ -13,7 +15,19 @@ function ImageSeprator(){
     )
 }
 
+
 export default function Homepage(){
+    const [fontLoaded] = useFonts({
+        "AvegasRoyale-Bold":require("../../assets/fonts/AvegasRoyale-Bold.ttf"),
+        "AvegasRoyale-Regular":require("../../assets/fonts/AvegasRoyale-Regular.ttf"),
+        "Paterna":require("../../assets/fonts/Paterna.otf"),
+        "ReilycElegantDemo-Regular":require("../../assets/fonts/ReilycElegantDemo-Regular.otf"),
+        
+    })
+    if(!fontLoaded){
+        return null
+    };
+
     return(
         <SafeAreaProvider>
             <SafeAreaView>
@@ -31,6 +45,8 @@ export default function Homepage(){
                                 source={item.imgurl}
                                 style={appStyles.flatimg}
                                 />
+                               <View style={appStyles.iconView}>
+                                <Text style={appStyles.designerName}> Designer: {item.designer} </Text>
                                 <View style={appStyles.iconDisplay}>
                                     <TouchableOpacity>
                                         <AntDesign name="heart" size={24} color="black" />
@@ -39,8 +55,10 @@ export default function Homepage(){
                                         <AntDesign name="comment" size={24} color="black" />
                                     </TouchableOpacity>
                                 </View>
-                                <Text style={appStyles.designerName}> Designer: {item.designer} </Text>
+                                
                             </View>
+                               </View>
+
                             
                         )
                        }}
